@@ -12,17 +12,15 @@
 		$authenticated = false ;
 		$error_message = "Blank fields";
 	}
-
-	if (isset($signupButton)) {
-		$file = fopen("password.txt", "a");
+	elseif (isset($signupButton)) {
+		$file = fopen("./password.txt", "a");
 		if (!($file)) {
 			$error_message = "Failed to open for append." ;
 			$authenticated = false ;
-			die() ;
 		}
 		else {
 			$append = true ;
-			$check = file("password.txt") ;
+			$check = file("./password.txt") ;
 			foreach ($check as $user) {
 				if (explode(",", $user, 2)[0] == $username) {
 					$append = false ;
@@ -40,7 +38,7 @@
 		fclose($file) ;
 	}
 	else {
-		$file = fopen("password.txt", "r") ;
+		$file = fopen("./password.txt", "r") ;
 		if (!($file)) {
 			$authenticated = false ;
 			$error_message = "Failed to open for read." ;
