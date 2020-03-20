@@ -7,62 +7,48 @@
 <?php
 	$error_message = "Error." ;
 	$authenticated = false ;
-	extract($_POST) ;
-	if (!$username || !$password) {
-		$authenticated = false ;
-		$error_message = "Not Authenticated!";
-	}
-	elseif (isset($signupButton)) {
-		$file = fopen("./password.txt", "a");
-		if (!($file)) {
-			$error_message = "Failed to open for append." ;
-			$authenticated = false ;
+	$error = "" ;
+	if (!empty($_POST)) {
+		extract($_POST) ;
+		if (!$first || !$last || !$email) {
+			$error = "You must fill in all the required fields!" ;
 		}
 		else {
-			$append = true ;
-			$check = file("./password.txt") ;
-			foreach ($check as $user) {
-				if (explode(",", $user, 2)[0] == $username) {
-					$append = false ;
-				}
+			$query = "INSERT INTO users VALUE(\"{$first}\", \"{$last}\", \"{$email}\", \"{$phone}\")" ;
+			$innerquery = "SELECT *
+	 		FROM users
+	 		WHERE ((first_name LIKE '%{$first}%') AND (last_name LIKE '%{$last}%')) OR (email LIKE '%{$email}%');" ;
+			$servername = '127.0.0.1';
+			$username = "root";
+			$password = "G2rsb9ae0a64!";
+			$db = "stonksdb" ;
+			$result = array() ;
+			// Create connection
+			$conn = new mysqli($servername, $username, $password, $db);
+
+			// Check connection
+			if ($conn->connect_error) {
+				die("Connection failed: " . $conn->connect_error);
 			}
-			if ($append) {
-				fputs($file, "$username,$password\n");
-				$error_message = "User created, you can login." ;
+			$queryset = $conn->query($innerquery) ;
+			if ($queryset->num_rows > 0) {
+				while ($row = mysqli_fetch_row($queryset)) {
+					$result[] = $row ;
+				}
+				print_r($result) ;
+				$error = "User first and last name or email already exist!" ;
 			}
 			else {
-				$error_message = "User already exists." ;
-			}
+				$conn->query($query) ;
 
-		}
-		fclose($file) ;
-	}
-	else {
-		$file = fopen("./password.txt", "r") ;
-		if (!($file)) {
-			$authenticated = false ;
-			$error_message = "Failed to open for read." ;
-			die () ;
-		}
-		else {
-			while (!feof($file) && !$authenticated) {
-				$line = chop(fgets($file, 255)) ;
-				$filed = explode(",", $line, 2) ;
-				if ($username == $filed[0] && $password == $filed[1]) {
-					$authenticated = true ;
-				}
+				$error = $conn->error ;
 			}
-			if (!$authenticated) {
-				$error_message = "Auth failed, credentials not found/incorrect." ;
-			}
-			fclose($file) ;
 		}
 	}
 ?>
-
 <html>
 	<head>
-		<title>STONX - Login</title>
+		<title>STONX - Contacts</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -106,6 +92,7 @@
 							<li><a href="services.php">Services</a></li>
 							<li><a href="news.php">News</a></li>
 							<li><a href="contacts.php">Contacts</a></li>
+							<li><a href="users.php">Users</a></li>
 							<li><a href="login.html">Login</a></li>
 						</ul>
 					</nav>
@@ -118,17 +105,37 @@
 					<div class="container">
 						<article id="main" class="special">
 							<header>
-								<h1>
-									<?php
-										if ($authenticated) {
-											echo '<a href="users.txt" download> Authenticated! Download user list here. </a>' ;
-										}
-										else {
-											echo $error_message ;
-										}
-									?>
-								</h1>
+								<h2><?php echo $error ;?></h2>
+								<h2><a href="#">Register</a></h2>
 							</header>
+							<div class="container">
+								<!-- login class -->
+								<div class="card">
+									<article class="card-body">
+										 <form action="./register.php" method="POST">
+										<div class="form-group">
+											<label>First name</label>
+											<input name="first" class="form-control" placeholder="Required." type="">
+										</div> <!-- form-group// -->
+										<div class="form-group">
+											<label>Last name</label>
+											<input name="last" class="form-control" placeholder="Required." type="">
+										</div> <!-- form-group// -->
+										<div class="form-group">
+											<label>Email</label>
+											<input name="email" class="form-control" placeholder="Required." type="">
+										</div> <!-- form-group// -->
+										<div class="form-group">
+											<label>Phone #</label>
+											<input name="phone" class="form-control" placeholder="" type="">
+										</div> <!-- form-group// -->
+										<div class="form-group">
+											<button type="submit" class="btn btn-primary btn-block" style="float:left" name="submitButton"> Submit</button>
+											<!-- <a href="" class="float-right btn btn-outline-primary">Sign up</a>-->
+										</div> <!-- form-group// -->
+									</form>
+									</article>
+									</div> <!-- card.// -->
 									</div>
 								</div>
 							</div>

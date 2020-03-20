@@ -75,6 +75,7 @@
 							<li><a href="services.php">Services</a></li>
 							<li><a href="news.php">News</a></li>
 							<li><a href="contacts.php">Contacts</a></li>
+							<li><a href="users.php">Users</a></li>
 							<li><a href="login.html">Login</a></li>
 						</ul>
 					</nav>

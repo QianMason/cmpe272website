@@ -8,54 +8,30 @@
 	$error_message = "Error." ;
 	$authenticated = false ;
 	extract($_POST) ;
-	if (!$username || !$password) {
-		$authenticated = false ;
-		$error_message = "Not Authenticated!";
-	}
-	elseif (isset($signupButton)) {
-		$file = fopen("./password.txt", "a");
-		if (!($file)) {
-			$error_message = "Failed to open for append." ;
-			$authenticated = false ;
-		}
-		else {
-			$append = true ;
-			$check = file("./password.txt") ;
-			foreach ($check as $user) {
-				if (explode(",", $user, 2)[0] == $username) {
-					$append = false ;
-				}
-			}
-			if ($append) {
-				fputs($file, "$username,$password\n");
-				$error_message = "User created, you can login." ;
-			}
-			else {
-				$error_message = "User already exists." ;
-			}
 
-		}
-		fclose($file) ;
+	// $query = "SELECT *
+	// FROM users
+	// WHERE (first_name LIKE \'%' . $first . '%\') AND (last_name LIKE \'%' . $last . '%\') AND (email LIKE \'%' . $email . '%\') AND (phone_number LIKE \'%' . $phone . '%\');" ;
+	//$query = "SELECT * FROM users ;" ;
+	$query = "SELECT *
+	 FROM users
+	 WHERE (first_name LIKE '%{$first}%') AND (last_name LIKE '%{$last}%') AND (email LIKE '%{$email}%') AND (phone_number LIKE '%{$phone}%');" ;
+	$servername = '127.0.0.1';
+	$username = "root";
+	$password = "G2rsb9ae0a64!";
+	$db = "stonksdb" ;
+	$result = array() ;
+	// Create connection
+	$conn = new mysqli($servername, $username, $password, $db);
+
+	// Check connection
+	if ($conn->connect_error) {
+		die("Connection failed: " . $conn->connect_error);
 	}
-	else {
-		$file = fopen("./password.txt", "r") ;
-		if (!($file)) {
-			$authenticated = false ;
-			$error_message = "Failed to open for read." ;
-			die () ;
-		}
-		else {
-			while (!feof($file) && !$authenticated) {
-				$line = chop(fgets($file, 255)) ;
-				$filed = explode(",", $line, 2) ;
-				if ($username == $filed[0] && $password == $filed[1]) {
-					$authenticated = true ;
-				}
-			}
-			if (!$authenticated) {
-				$error_message = "Auth failed, credentials not found/incorrect." ;
-			}
-			fclose($file) ;
+	if ($queryset = $conn->query($query)) {
+		//echo "Returned rows are: " . $queryset->num_rows;
+		while ($row = mysqli_fetch_row($queryset)) {
+			$result[] = $row ;
 		}
 	}
 ?>
@@ -106,29 +82,59 @@
 							<li><a href="services.php">Services</a></li>
 							<li><a href="news.php">News</a></li>
 							<li><a href="contacts.php">Contacts</a></li>
+							<li><a href="users.php">Users</a></li>
 							<li><a href="login.html">Login</a></li>
 						</ul>
 					</nav>
 
 				</div>
 
-			<!-- Main -->
+			<!-- MAIN SECTION -->
 				<div class="wrapper style1">
 
 					<div class="container">
 						<article id="main" class="special">
 							<header>
-								<h1>
-									<?php
-										if ($authenticated) {
-											echo '<a href="users.txt" download> Authenticated! Download user list here. </a>' ;
-										}
-										else {
-											echo $error_message ;
-										}
-									?>
-								</h1>
+								<h2>
+									<a href="users.php">
+										<?php
+											if (!$result) {echo "No results found! Return to search." ;}
+											else {echo "Returned rows : $queryset->num_rows" ;}
+											$conn->close() ;
+										?>
+									</a>
+								</h2>
 							</header>
+							<div class="container">
+								<!-- contacts card -->
+								<div class="card card-default" id="card_contacts">
+									<div id="contacts" class="panel-collapse collapse show" aria-expanded="true" style="">
+										<ul class="list-group pull-down" id="contact-list">
+											<li class="list-group-item">
+												<div class="row w-100">
+
+													<?php
+														foreach($result as $row) {
+															echo "<div class=\"col-12 col-sm-6 col-md-3 px-0\">
+																<img src=\"images/mememan.png\" alt=\"Mike Anamendolla\" class=\"rounded-circle mx-auto d-block img-fluid\">
+															</div>" ;
+															$name = $row[0] . " " . $row[1] ;
+															echo "<div class=\"col-12 col-sm-6 col-md-9 text-center text-sm-left\">
+															<label class=\"name lead font-weight-bold\">{$name}</label>
+															<br>
+															<span class=\"fa fa-phone fa-fw text-muted\" data-toggle=\"tooltip\" title=\"\" data-original-title=\"(870) 288-4149\"></span>
+															<span class=\"text-muted small\">{$row[3]}</span>
+															<br>
+															<span class=\"fa fa-envelope fa-fw text-muted\" data-toggle=\"tooltip\" data-original-title=\"\" title=\"\"></span>
+															<span class=\"text-muted small text-truncate\">{$row[2]}</span>
+														</div>" ;
+														}
+													?>
+
+												</div>
+											</li>
+										</ul>
+										<!--/contacts list-->
 									</div>
 								</div>
 							</div>
@@ -136,7 +142,6 @@
 					</div>
 
 				</div>
-
 			<!-- Footer -->
 				<div id="footer">
 					<div class="container">
