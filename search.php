@@ -18,7 +18,7 @@
 	 WHERE (first_name LIKE '%{$first}%') AND (last_name LIKE '%{$last}%') AND (email LIKE '%{$email}%') AND (phone_number LIKE '%{$phone}%');" ;
 	$servername = 'localhost';
 	$username = "root";
-	$password = "G2rsb9ae0a64!";
+	$password = "XIeO8xEKtL8m";
 	$db = "stonksdb" ;
 	$result = array() ;
 	// Create connection
