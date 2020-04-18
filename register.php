@@ -40,8 +40,10 @@
 			}
 			else {
 				$conn->query($query) ;
-
 				$error = $conn->error ;
+				if ($error == "") {
+					$error = "Successfully created user!" ;
+				}
 			}
 		}
 	}
