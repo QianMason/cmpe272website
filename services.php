@@ -4,6 +4,7 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
+
 <html>
 	<head>
 		<title>STONX - Services</title>
@@ -64,15 +65,8 @@
 							<div class="col-4 col-12-mobile" id="sidebar">
 								<hr class="first" />
 								<section>
-									<header>
-										<h3><a href="#">Never done stonk trading before?</a></h3>
-									</header>
-									<p>
-										Are you a beginner? Below is a link to our tutorial and learning page. They're you'll find all relevant
-										information to help you start trading stonks right away!
-									</p>
 									<footer>
-										<a href="#" class="button">Learn More</a>
+										<a href="last5visited.php" class="button">Past 5 visited services</a>
 									</footer>
 								</section>
 								<hr />
@@ -135,41 +129,85 @@
 											Utilize our wide variety of services from trading to managing your account.
 										</p>
 									</header>
-									<a href="#" class="image featured"><img src="images/pic06.jpg" alt="" /></a>
-									<p>
-										Commodo id natoque malesuada sollicitudin elit suscipit. Curae suspendisse mauris posuere accumsan massa
-										posuere lacus convallis tellus interdum. Amet nullam fringilla nibh nulla convallis ut venenatis purus
-										lobortis. Auctor etiam porttitor phasellus tempus cubilia ultrices tempor sagittis. Nisl fermentum
-										consequat integer interdum integer purus sapien. Nibh eleifend nulla nascetur pharetra commodo mi augue
-										interdum tellus. Ornare cursus augue feugiat sodales velit lorem. Semper elementum ullamcorper lacinia
-										natoque aenean scelerisque vel lacinia mollis quam sodales congue.
-									</p>
+									<a href="#" class="image featured"><img src="images/services.jpg" alt="" /></a>
 									<section>
 										<header>
-											<h3>Ultrices tempor sagittis nisl</h3>
+											<h3><a href="regularaccount.php">Regular Account</a></h3>
 										</header>
 										<p>
-											Nascetur volutpat nibh ullamcorper vivamus at purus. Cursus ultrices porttitor sollicitudin imperdiet
-											at pretium tellus in euismod a integer sodales neque. Nibh quis dui quis mattis eget imperdiet venenatis
-											feugiat. Neque primis ligula cum erat aenean tristique luctus risus ipsum praesent iaculis. Fermentum elit
-											fringilla consequat dis arcu. Pellentesque mus tempor vitae pretium sodales porttitor lacus. Phasellus
-											egestas odio nisl duis sociis purus faucibus morbi. Eget massa mus etiam sociis pharetra magna.
-										</p>
-										<p>
-											Eleifend auctor turpis magnis sed porta nisl pretium. Aenean suspendisse nulla eget sed etiam parturient
-											orci cursus nibh. Quisque eu nec neque felis laoreet diam morbi egestas. Dignissim cras rutrum consectetur
-											ut penatibus fermentum nibh erat malesuada varius.
+											Open a standard stonk trading account and get access to comprehensive investment products. No fees for the first $10000 in trades.
 										</p>
 									</section>
 									<section>
 										<header>
-											<h3>Augue euismod feugiat tempus</h3>
+											<h3><a href="regularaccountplus.php">Regular Account Plus</a></h3>
 										</header>
 										<p>
-											Pretium tellus in euismod a integer sodales neque. Nibh quis dui quis mattis eget imperdiet venenatis
-											feugiat. Neque primis ligula cum erat aenean tristique luctus risus ipsum praesent iaculis. Fermentum elit
-											ut nunc urna volutpat donec cubilia commodo risus morbi. Lobortis vestibulum velit malesuada ante
-											egestas odio nisl duis sociis purus faucibus morbi. Eget massa mus etiam sociis pharetra magna.
+											All the bells and whistles of the regular account, but with weekly investment newsletters and virtual annual investor meetings with information from our top analysts to help you decide what stonks to invest in.
+										</p>
+									</section>
+									<section>
+										<header>
+											<h3><a href="managedportfolio.php">Managed Portfolio</a></h3>
+										</header>
+										<p>
+											Don't waste your time dealing with the details, let our experts make the most of stonks for you. Save time and stay invested for the long term with professionally managed portfolios.
+										</p>
+									</section>
+									<section>
+										<header>
+											<h3><a href="managedportfolioplus.php">Managed Portfolio Plus</a></h3>
+										</header>
+										<p>
+											All the benefits of a managed portfolio, but with exclusive 24/7 access to our investment management hotline which will provide comprehensive reports and details on your account. Personal invitation to annual stonk investor meetings.
+										</p>
+									</section>
+									<section>
+										<header>
+											<h3><a href="retirementaccount.php">Retirement Account</a></h3>
+										</header>
+										<p>
+											Let us help you plan and pursue your retirement goals in stonk investment.
+										</p>
+									</section>
+									<section>
+										<header>
+											<h3><a href="retirementaccountplus.php">Retirement Account Plus</a></h3>
+										</header>
+										<p>
+											Retire account benefits with extra comprehensive benefits ranging from access to our investment hotline to weekly newsletters to virtual annual investor meetings.
+										</p>
+									</section>
+									<section>
+										<header>
+											<h3><a href="mobileaccount.php">Mobile Account</a></h3>
+										</header>
+										<p>
+											A streamlined account service for the on the go and quick trading broker. Useful for people knowledgable of stonk trading.
+										</p>
+									</section>
+									<section>
+										<header>
+											<h3><a href="corporateaccount.php">Corporate Account</a></h3>
+										</header>
+										<p>
+											Perfect for corporate entities wanting to make large investments. Our services will provide custom support specifically for your companies needs.
+										</p>
+									</section>
+									<section>
+										<header>
+											<h3><a href="noobaccount.php">Noob Account</a></h3>
+										</header>
+										<p>
+											A simulated stonk environment to help those new to stonk trading understand the ins and outs of stonk trading.
+										</p>
+									</section>
+									<section>
+										<header>
+											<h3><a href="governmentaccount.php">Government Account</a></h3>
+										</header>
+										<p>
+											Services for governments and sovereign entities.
 										</p>
 									</section>
 								</article>

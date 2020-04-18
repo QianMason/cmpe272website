@@ -16,9 +16,9 @@
 	$query = "SELECT *
 	 FROM users
 	 WHERE (first_name LIKE '%{$first}%') AND (last_name LIKE '%{$last}%') AND (email LIKE '%{$email}%') AND (phone_number LIKE '%{$phone}%');" ;
-	$servername = 'localhost';
+	$servername = '127.0.0.1';
 	$username = "root";
-	$password = "XIeO8xEKtL8m";
+	$password = "G2rsb9ae0a64!";
 	$db = "stonksdb" ;
 	$result = array() ;
 	// Create connection

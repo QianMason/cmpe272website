@@ -18,9 +18,9 @@
 			$innerquery = "SELECT *
 	 		FROM users
 	 		WHERE ((first_name LIKE '%{$first}%') AND (last_name LIKE '%{$last}%')) OR (email LIKE '%{$email}%');" ;
-			$servername = 'localhost';
+			$servername = '127.0.0.1';
 			$username = "root";
-			$password = "XIeO8xEKtL8m";
+			$password = "G2rsb9ae0a64!";
 			$db = "stonksdb" ;
 			$result = array() ;
 			// Create connection
@@ -40,10 +40,8 @@
 			}
 			else {
 				$conn->query($query) ;
+
 				$error = $conn->error ;
-				if ($error == "") {
-					$error = "Successfully created user!" ;
-				}
 			}
 		}
 	}
