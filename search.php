@@ -19,7 +19,7 @@
 	$servername = 'localhost';
 	$username = "root";
 	$password = "root";
-	$db = "stonksdb" ;
+	$db = "stonxdb" ;
 	$result = array() ;
 	// Create connection
 	$conn = new mysqli($servername, $username, $password, $db);
