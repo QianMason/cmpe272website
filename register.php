@@ -20,7 +20,7 @@
 	 		WHERE ((first_name LIKE '%{$first}%') AND (last_name LIKE '%{$last}%')) OR (email LIKE '%{$email}%');" ;
 			$servername = '127.0.0.1';
 			$username = "root";
-			$password = "G2rsb9ae0a64!";
+			$password = "root";
 			$db = "stonksdb" ;
 			$result = array() ;
 			// Create connection
