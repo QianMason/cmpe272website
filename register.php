@@ -18,7 +18,7 @@
 			$innerquery = "SELECT *
 	 		FROM users
 	 		WHERE ((first_name LIKE '%{$first}%') AND (last_name LIKE '%{$last}%')) OR (email LIKE '%{$email}%');" ;
-			$servername = '127.0.0.1';
+			$servername = 'localhost';
 			$username = "root";
 			$password = "root";
 			$db = "stonksdb" ;
