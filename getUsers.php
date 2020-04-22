@@ -31,7 +31,6 @@
 	<?php
 	foreach ($result as $row) {
 		foreach($row as $item) {
-			$item = $item + "|" ;
 			echo $item;
 		}
 	}
