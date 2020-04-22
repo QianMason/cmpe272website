@@ -30,9 +30,18 @@
 <html>
 	<?php
 	foreach ($result as $row) {
-		foreach($row as $item) {
-			print($item + "|");
-		}
+        echo ($row[0]);
+        echo ("|");
+        echo ($row[1]);
+        echo ("|");
+        echo ($row[2]);
+        echo ("|");
+        echo ($row[3]);
+        echo ("|");
+        echo ($row[4]);
+        echo ("|");
+        echo ($row[5]);
+        echo ("|");
 	}
 	?>
 </html>
