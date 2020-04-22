@@ -31,7 +31,7 @@
 	<?php
 	foreach ($result as $row) {
 		foreach($row as $item) {
-			print($item) + "|";
+			print($item + "|");
 		}
 	}
 	?>
