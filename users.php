@@ -7,7 +7,7 @@
 
 <html>
 	<head>
-		<title>STONX - Contacts</title>
+		<title>STONX - Users</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -89,7 +89,7 @@
 										</div> <!-- form-group// -->
 										<div class="form-group">
 											<button type="submit" class="btn btn-primary btn-block" style="float:left" name="submitButton"> Submit</button>
-											<button type="submit" class="btn btn-primary btn-block" style="float:left" name="registerButton"><a href="register.php">Need to register?</a></button>
+											<button type="submit" class="btn btn-primary btn-block" style="float:left" name="registerButton"><a href="allusers.php">List of all users (affiliate companies too)</a></button>
 											<!-- <a href="" class="float-right btn btn-outline-primary">Sign up</a>-->
 										</div> <!-- form-group// -->
 									</form>
