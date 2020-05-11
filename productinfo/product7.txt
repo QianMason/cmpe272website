@@ -1,5 +1,1 @@
-Mobile Account
-A streamlined account service for the on the go and quick trading broker. Useful for people knowledgable of stonk trading.
-20.00
-monthly
-http://masonqian.com/images/mobileacc.jpg
+Mobile Account<br>A streamlined account service for the on the go and quick trading broker. Useful for people knowledgable of stonk trading.<br>20.00<br>monthly<br>http://masonqian.com/images/mobileacc.jpg
